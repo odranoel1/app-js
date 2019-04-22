@@ -13,7 +13,7 @@ const app = express(); //<--Express
 require('./views/links/lib/passport');
 
 //Settings (Configuraciones del servidor de express)
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8000);
 
 app.set('views', path.join(__dirname, 'views')); //<-- Establecer donde esta la carpeta views
 
@@ -50,7 +50,7 @@ app.use((req, res, next) => {
   app.locals.success = req.flash('success');
   app.locals.message = req.flash('message');
   app.locals.user = req.user; //Dato de session del usuario
-  
+
   next();
 });
 
