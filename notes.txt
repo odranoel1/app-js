@@ -1,0 +1,89 @@
+Proyecto con Nodejs
+
+npm init <-- sirve para correr un proyecto con node
+
+Modulos para backend && frontend
+
+Express <--Framework de Node.js
+Express-Handlebars <--Para instalar un motor de plantillas en express (También puede ser pug)
+Express-Session <--Crear sesiones del servidor
+Mysql <-- Es un módulo que nos permite conectarnos y hacer consultas
+Express-mysql-session <-- Almacena las sesiones en la db, en lugar del servidor(bueno para producción)
+Morgan <-- Nos permite mostrar las peticiones que se realizan por http, logs de lo que la aplicacion cliente le pide al servidor
+Bcryptjs <-- Cifrar contraseñas: Aplicar algoritmo a cierto string y convertirlo en hash
+Passport <--Para auntenticarse y guardar en la bd (usuario)
+Timeago.js <-- Convierte los timestamps en formato: 06:02
+Connect-flash <--Enviar mensajes entre multiples vistas(alertas)
+Express-validator <-- Modulo para validar los datos que envia el usuario desde la app cliente
+
+npm i express express-handlebars express-session mysql express-mysql-session morgan bcryptjs passport passport-local timeago.js connect-flash express-validator
+
+Nodemoon <-- Sólo se va usar para desarrollo
+
+npm i nodemon -D
+
+Estructura de Carpetas
+
+-src
+-- lib
+--public <--Insertar todos los archivos estaticos(assets)
+--routes <--Crear las url de nuestro servidor(las rutas)
+-- views <--
+-- index.js <-- Archivo que arranca la app
+-- db.js <-- Conexión a mysql
+-- keys.js <-- Almacenar claves para los servicios(numero de puerto, conexión, pass, etc)
+
+Hay que arrancar nuestro servidor en index.js
+*Constantes en js:
+const name = data;
+
+*Express es una función, al ejecutarla se nos devuelve un objeto
+y lo almacenamos en otra constante.
+
+*process.env.PORT si existe un puerto en la compu que lo tome,
+en caso contrario, que tome el que se haya configurado (Ej.3000)
+
+-- Routes
+--- index.js <-- Para almacenar todas las rutas principales de la app
+
+Una vez creada la ruta, hay que utilizarla (Se define en el index.js)
+
+*Router(request & response) Peticiones y las respuestas
+
+** Motor de plantilla HBS
+Se configura en settings del index.js para poder generar las vistas
+
+Antes establecemos donde esta la carpeta views (en settings de index.js)
+
+*Módulo Path <--Usamos metodo join para unir directorios,
+*const __dirname <--Devuelve la ruta en donde se ejecuta el archivo:
+Ej.
+-src
+--index.js <--Archivo ejecutado
+Por lo tanto se encuentra dentro de la carpeta src, y con el método
+join lo concatenamos con otra carpeta, las vistas por ejemplo
+
+-- Lib <-- Para usar funciones en handlebars(Fuera de la carpeta de views)
+--- handlebars.js
+Esto see configura en settings de index.js
+
+urlencoded() <--Cuando un formulario quiera enviar determinado dato, se pueda entender
+extended: false <--Para no recibir imágenes
+
+--Database
+Creamos nuestra base de datos
+
+CRUD
+El servidor va recibir los datos a través de la propiedad "name" que
+se encuentra en los input del formulario
+Cuando se envian los datos por js, realmente se esta enviando un objeto:
+Ej.
+
+{title: 'Do job', description: 'make job'}
+
+Destructuring<--Sacar cada propiedad por separado en una constante o variable,
+para luego poder guardarlos
+
+Module.exports <-- Para utilizar el modelo de datos, en otra parte de la aplicacion
+
+Async <-- Para realizar un proceso asyncrono,
