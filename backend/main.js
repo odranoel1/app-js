@@ -13,7 +13,7 @@ const app = express(); //<--Express
 require('./views/links/lib/passport');
 
 //Settings (Configuraciones del servidor de express)
-app.set('port', process.env.PORT || 8000);
+app.set('port', process.env.PORT || 3000);
 
 app.set('views', path.join(__dirname, 'views')); //<-- Establecer donde esta la carpeta views
 
